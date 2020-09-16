@@ -1,0 +1,20 @@
+.appContainer {
+    width: 90vw;
+    height: 96vh;
+    background-color: white;
+    box-shadow: 0 0 30px -10px rgb(61, 61, 61);
+    display: flex;
+}
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+/* ::-webkit-scrollbar-track {
+background: #eeeeee;
+} */
+::-webkit-scrollbar-thumb {
+    background: #cccccc;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c2c2c2;
+}

@@ -1,0 +1,62 @@
+.sidebar {
+    flex: 0.3;
+    border-right: 1px solid #dadada;
+}
+.sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    background-color: #ededed;
+}
+.sidebar__header > .MuiSvgIcon-root,
+.sidebar__header > .MuiAvatar-root {
+    margin: 0 10px;
+}
+.sidebar__headerInfo {
+    width: 90%;
+    padding: 0 5%;
+}
+.sidebar__headerInfo > h2 {
+    font-size: 18px;
+    color: #2c3335;
+    font-weight: 700;
+}
+.sidebar__headerInfo > h3 {
+    font-size: 12px;
+    color: #4c4b4b;
+    font-weight: 600;
+}
+
+.sidebar__search {
+    height: 35px;
+    padding: 7px 15px;
+    background-color: #f6f6f6;
+}
+.sidebar__searchContainer {
+    height: 100%;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.sidebar__searchContainer > .MuiSvgIcon-root {
+    height: 17px;
+    color: #75758b;
+}
+.sidebar__searchContainer > button {
+    display: none;
+}
+.sidebar__searchContainer > input {
+    width: 90%;
+    height: 20px;
+    border: none;
+    outline: none;
+}
+
+.sidebar__rooms {
+    height: calc(96vh - 119px);
+    overflow-y: scroll;
+}

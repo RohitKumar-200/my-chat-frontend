@@ -1,0 +1,6 @@
+.app {
+    background-image: linear-gradient(to bottom , rgb(124, 248, 207) 30%, rgb(240, 254, 255) 0);
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}

@@ -1,0 +1,29 @@
+.message {
+    font-size: 16px;
+    margin: 15px;
+    width: fit-content;
+    max-width: 80%;
+}
+.message__name {
+    font-weight: 700;
+    font-size: x-small;
+    padding: 2px 0;
+    color: rgb(104, 104, 104);
+}
+.message__content {
+    color: #111111;
+    background-color: white;
+    padding: 10px;
+}
+.message__author {
+    margin-left: auto;
+}
+.message__author .message__content {
+    background-color: #dcf8c6;
+}
+.message__timestamp {
+    font-size: xx-small;
+    padding: 2px 0;
+    text-align: right;
+    color: rgb(100, 100, 100);
+}

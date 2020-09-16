@@ -1,0 +1,73 @@
+.chatRoom {
+    flex: 0.7;
+}
+.chatRoom__header {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ededed;
+    padding: 0 20px;
+}
+.chatRoom__headerLeft {
+    display: flex;
+}
+.chatRoom__headerInfo {
+    padding: 0 20px;
+}
+.chatRoom__headerInfo > h2 {
+    font-size: 18px;
+    color: #2c3335;
+    font-weight: 700;
+}
+.chatRoom__headerInfo > h3 {
+    font-size: 12px;
+    color: #4c4b4b;
+    font-weight: 600;
+}
+.chatRoom__headerRight {
+    display: flex;
+}
+
+.chatRoom__body {
+    height: calc(96vh - 130px);
+    /* background-image: url('https://image.freepik.com/free-vector/birds-letter-mail-seamless-pattern-doodle-mail-vector-background_7586-1157.jpg'); */
+    background-color: #e5ddd5;
+    /* background-blend-mode: lighten; */
+    overflow-y: scroll;
+}
+
+.chat__footer {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    background-color: #f0f0f0;
+}
+.chat__footer .MuiSvgIcon-root {
+    font-size: 30px;
+    color: #919191;
+}
+.chat__footer > form {
+    flex: 1;
+    display: flex;
+}
+.chat__footer > form > input {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 0 20px;
+    margin: 0 10px;
+    background-color: #ffffff;
+    color: #4a4a4a;
+}
+.chat__footer > form > input::placeholder {
+    color: #919191;
+}
+.chat__footer > form > button {
+    display: none;
+}

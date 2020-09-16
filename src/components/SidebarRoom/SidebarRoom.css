@@ -1,0 +1,30 @@
+.sidebarRoom__container {
+    height: 70px;
+}
+.sidebarRoom__container:hover {
+    background-color: #fafafa;
+    cursor: pointer;
+}
+.sidebarRoom__hr {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #e6e6e6;
+    border: none;
+    height: 0.1px;
+}
+
+.sidebarRoom__container {
+    display: flex;
+    align-items: center;
+    padding: 0 2.5%;
+}
+.sidebarRoom__info {
+    padding-left: 15px;
+}
+.sidebarRoom__title {
+    font-weight: 600;
+    font-size: 16px;
+}
+.sidebarRoom__lastMessage {
+    font-size: 14px;
+}
