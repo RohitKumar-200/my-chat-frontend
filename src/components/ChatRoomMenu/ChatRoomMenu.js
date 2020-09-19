@@ -4,17 +4,18 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import AddParticipant from "../Dialogs/AddParticipant";
 
 const options = [
     "Leave room",
     "Clear chat",
-    "Add participant",
+    <AddParticipant />,
     "Invitation link",
     "Invitation code",
     "Delete room",
 ];
 
-const ITEM_HEIGHT = 50;
+const ITEM_HEIGHT = 52;
 
 function ChatRoomMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);

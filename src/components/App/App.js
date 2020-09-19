@@ -13,9 +13,9 @@ function App() {
           <Route path='/app'>
             <AppContainer />
           </Route>
-          {/* <Route path="/sample">
+          <Route path="/sample">
             <Sample />
-          </Route> */}
+          </Route>
           <Route path='/'>
             <Home />
           </Route>

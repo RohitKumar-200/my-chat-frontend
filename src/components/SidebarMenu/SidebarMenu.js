@@ -4,11 +4,13 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import JoinRoom from "../Dialogs/JoinRoom";
+import CreateRoom from "../Dialogs/CreateRoom";
 
 const options = [
     "Log Out",
-    "Join Room",
-    "Create New Room",
+    <JoinRoom />,
+    <CreateRoom />
 ];
 
 const ITEM_HEIGHT = 50;
@@ -24,6 +26,10 @@ function SidebarMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleMenuClose = () => {
+        setAnchorEl(null);
+    }
 
     return (
         <div>
@@ -48,11 +54,11 @@ function SidebarMenu() {
                     },
                 }}
             >
-                {options.map((option) => (
+                {options.map((option, i) => (
                     <MenuItem
-                        key={option}
+                        key={"sidebarMenu"+i}
                         selected={option === ""}
-                        onClick={handleClose}
+                        onClick={handleMenuClose}
                     >
                         {option}
                     </MenuItem>
