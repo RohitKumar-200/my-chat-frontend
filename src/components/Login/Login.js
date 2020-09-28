@@ -26,7 +26,7 @@ function Login() {
     return (
         <div className="login">
             <div className="login__container">
-                <img src="https://www.flaticon.com/svg/static/icons/svg/1041/1041916.svg" alt="my-chat logo image"/>
+                <img src="https://www.flaticon.com/svg/static/icons/svg/1041/1041916.svg" alt="my-chat logo"/>
                 <div className="login__text">
                     <h1>Sign in to My Chat</h1>
                 </div>
