@@ -4,12 +4,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import AppContainer from '../AppContainer/AppContainer';
 import Home from '../Home/Home';
 import Sample from '../Sample/Sample';
+import Login from '../Login/Login';
+import {UserProvider} from '../../context/UserContext';
 
 function App() {
+
   return (
+    <UserProvider>
     <div className="app">
       <Router>
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path='/app'>
             <AppContainer />
           </Route>
@@ -22,6 +29,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </UserProvider>
   );
 }
 
