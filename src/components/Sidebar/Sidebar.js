@@ -6,13 +6,15 @@ import SidebarRoom from "../SidebarRoom/SidebarRoom";
 import SidebarMenu from "../SidebarMenu/SidebarMenu";
 
 function Sidebar() {
+    const user = JSON.parse(window.localStorage.getItem('myChatUser'));
+
     return (
         <div className="sidebar">
             <div className="sidebar__header">
-                <Avatar />
+                <Avatar src={user.pic} />
                 <div className="sidebar__headerInfo">
-                    <h2>Rohit Kumar</h2>
-                    <h3>email@example.com</h3>
+                    <h2>{user.name}</h2>
+                    <h3>{user.email}</h3>
                 </div>
                 <SidebarMenu />
             </div>

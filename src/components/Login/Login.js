@@ -1,23 +1,21 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import "./Login.css";
 import { Button } from '@material-ui/core';
 import { auth, provider } from '../../firebase';
-import {UserContext} from '../../context/UserContext';
 import { useHistory } from 'react-router-dom';
 
 function Login() {
-    const [user, setUser] = useContext(UserContext);
     const history = useHistory();
 
     const signIn = () => {
         auth
             .signInWithPopup(provider)
             .then((result) => {
-                setUser({
+                window.localStorage.setItem("myChatUser", JSON.stringify({
                     pic: result.user.photoURL,
                     name: result.user.displayName,
                     email: result.user.email
-                });
+                }));
                 history.push('/app');
             })
             .catch((error) => alert(error.message));

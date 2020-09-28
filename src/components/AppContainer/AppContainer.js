@@ -1,20 +1,18 @@
-import React, {useContext} from "react";
+import React from "react";
 import ChatRoom from "../ChatRoom/ChatRoom";
 import Sidebar from "../Sidebar/Sidebar";
 import "./AppContainer.css";
-import { UserContext } from "../../context/UserContext";
 import { useHistory } from "react-router-dom";
 
 
 function AppContainer() {
-  const [user, setUser] = useContext(UserContext);
   const history = useHistory();
 
     return (
         <>
-            {user?(
+            {window.localStorage.getItem('myChatUser')?(
                 <div className="appContainer">
-                    {console.log(user)}
+                    {/* {console.log(window.localStorage.getItem('myChatUser'))} */}
                     <Sidebar />
                     <ChatRoom />
                 </div>

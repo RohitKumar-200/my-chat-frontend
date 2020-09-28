@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import JoinRoom from "../Dialogs/JoinRoom";
 import CreateRoom from "../Dialogs/CreateRoom";
+import { useHistory } from "react-router-dom";
 
 const options = [
     "Log Out",
@@ -18,6 +19,7 @@ const ITEM_HEIGHT = 50;
 function SidebarMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const history = useHistory();
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -26,9 +28,13 @@ function SidebarMenu() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
-    const handleMenuClose = () => {
+    
+    const handleMenuClose = (param) => {
         setAnchorEl(null);
+        if(param === 'Log Out') {
+            window.localStorage.removeItem('myChatUser');
+            history.push('/login');
+        }
     }
 
     return (
@@ -58,7 +64,7 @@ function SidebarMenu() {
                     <MenuItem
                         key={"sidebarMenu"+i}
                         selected={option === ""}
-                        onClick={handleMenuClose}
+                        onClick={() => handleMenuClose(option)}
                     >
                         {option}
                     </MenuItem>

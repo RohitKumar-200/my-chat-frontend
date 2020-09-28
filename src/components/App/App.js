@@ -5,12 +5,10 @@ import AppContainer from '../AppContainer/AppContainer';
 import Home from '../Home/Home';
 import Sample from '../Sample/Sample';
 import Login from '../Login/Login';
-import {UserProvider} from '../../context/UserContext';
 
 function App() {
 
   return (
-    <UserProvider>
     <div className="app">
       <Router>
         <Switch>
@@ -29,7 +27,6 @@ function App() {
         </Switch>
       </Router>
     </div>
-    </UserProvider>
   );
 }
 
