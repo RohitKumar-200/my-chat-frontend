@@ -1,40 +1,22 @@
 import { Avatar } from "@material-ui/core";
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "./SidebarRoom.css";
-import Pusher from "pusher-js";
 import { CurrentRoomContext } from "../../context/currentRoomContext";
 
-function SidebarRoom(props) {
-    const [currentRoomId, setCurrentRoomId] = useContext(CurrentRoomContext);
-    const [lastMessage, setLastMessage] = useState(props.lastMessage);
-
-    useEffect(() => {
-        const pusher = new Pusher("f6b1c526fc24e4978d34", {
-            cluster: "eu",
-        });
-
-        const channel = pusher.subscribe("lastMessageUpdate");
-        channel.bind(props.roomId, (newMessage) => {
-            setLastMessage(newMessage);
-        });
-
-        return () => {
-            channel.unbind_all();
-            channel.unsubscribe();
-        };
-    }, [props.roomId]);
+function SidebarRoom({ roomId, roomPic, roomName, lastMessage }) {
+    const [, setCurrentRoomId] = useContext(CurrentRoomContext);
 
     return (
         <div
             className="sidebarRoom"
             onClick={() => {
-                setCurrentRoomId(props.roomId);
+                setCurrentRoomId(roomId);
             }}
         >
             <div className="sidebarRoom__container">
-                <Avatar src={props.roomPic} />
+                <Avatar src={roomPic} />
                 <div className="sidebarRoom__info">
-                    <p className="sidebarRoom__title">{props.roomName}</p>
+                    <p className="sidebarRoom__title">{roomName}</p>
                     <p className="sidebarRoom__lastMessage">{lastMessage}</p>
                 </div>
             </div>

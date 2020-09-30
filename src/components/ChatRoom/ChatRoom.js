@@ -6,12 +6,14 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import Message from "../Message/Message";
 import ChatRoomMenu from "../ChatRoomMenu/ChatRoomMenu";
-import Pusher from "pusher-js";
 import axios from "../../axios";
 import { CurrentRoomContext } from "../../context/currentRoomContext";
+import pusher from "../../pusher";
+
+const messageChannel = pusher.subscribe("newMessage");
 
 function ChatRoom() {
-    const [currentRoomId, setCurrentRoomId] = useContext(CurrentRoomContext);
+    const [currentRoomId] = useContext(CurrentRoomContext);
 
     const userName = JSON.parse(window.localStorage.getItem("myChatUser"))[
         "name"
@@ -35,11 +37,6 @@ function ChatRoom() {
             axios.get(`/roomInfo/${currentRoomId}`).then((response) => {
                 setRoomInfo(response.data);
             });
-        }
-    }, [currentRoomId]);
-
-    useEffect(() => {
-        if (currentRoomId) {
             axios.get(`/roomMessages/${currentRoomId}`).then((response) => {
                 setMessages(response.data);
                 scrollDown();
@@ -48,19 +45,13 @@ function ChatRoom() {
     }, [currentRoomId]);
 
     useEffect(() => {
-        const pusher = new Pusher("f6b1c526fc24e4978d34", {
-            cluster: "eu",
-        });
-
-        const channel = pusher.subscribe("newMessage");
-        channel.bind(currentRoomId, (newMessage) => {
+        messageChannel.bind(currentRoomId, (newMessage) => {
             setMessages([...messages, newMessage]);
             scrollDown();
         });
 
         return () => {
-            channel.unbind_all();
-            channel.unsubscribe();
+            messageChannel.unbind_all();
         };
     }, [messages, currentRoomId]);
 
@@ -82,13 +73,13 @@ function ChatRoom() {
         return (
             <div className="emptyChatRoom">
                 <div className="emptyChatRoomContainer">
-                <div className="emptyChatRoom__imageContainer">
-                    <img
-                        src="https://www.flaticon.com/svg/static/icons/svg/1041/1041916.svg"
-                        alt="my-chat logo"
-                    />
-                </div>
-                <p className="emptyChatRoom__text">Welcome to My Chat</p>
+                    <div className="emptyChatRoom__imageContainer">
+                        <img
+                            src="https://www.flaticon.com/svg/static/icons/svg/1041/1041916.svg"
+                            alt="my-chat logo"
+                        />
+                    </div>
+                    <p className="emptyChatRoom__text">Welcome to My Chat</p>
                 </div>
             </div>
         );
