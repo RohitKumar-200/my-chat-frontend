@@ -71,3 +71,25 @@
 .chat__footer > form > button {
     display: none;
 }
+
+
+.emptyChatRoom {
+    flex: 0.7;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background-image: linear-gradient(to bottom , #F8F9FA 99%, #4ADF83 0);
+}
+.emptyChatRoom__imageContainer {
+    width: 200px;
+    height: 200px;
+    padding: 100px;
+    border-radius: 200px;
+    margin-bottom: 50px;
+    background-color: #d5ffda;
+}
+.emptyChatRoom__text {
+    text-align: center;
+    font-weight: 100;
+    font-size: 35px;
+}

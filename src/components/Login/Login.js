@@ -3,6 +3,7 @@ import "./Login.css";
 import { Button } from '@material-ui/core';
 import { auth, provider } from '../../firebase';
 import { useHistory } from 'react-router-dom';
+import axios from '../../axios';
 
 function Login() {
     const history = useHistory();
@@ -11,11 +12,16 @@ function Login() {
         auth
             .signInWithPopup(provider)
             .then((result) => {
-                window.localStorage.setItem("myChatUser", JSON.stringify({
+                const jsonData = {
                     pic: result.user.photoURL,
                     name: result.user.displayName,
                     email: result.user.email
-                }));
+                };
+                window.localStorage.setItem("myChatUser", JSON.stringify(jsonData));
+                return jsonData;
+            }).then(jsonData => {
+                axios.post("/user", jsonData);
+            }).then(() => {
                 history.push('/app');
             })
             .catch((error) => alert(error.message));

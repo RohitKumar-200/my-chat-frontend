@@ -3,23 +3,24 @@ import ChatRoom from "../ChatRoom/ChatRoom";
 import Sidebar from "../Sidebar/Sidebar";
 import "./AppContainer.css";
 import { useHistory } from "react-router-dom";
-
+import { CurrentRoomProvider } from "../../context/currentRoomContext";
 
 function AppContainer() {
-  const history = useHistory();
+    const history = useHistory();
 
     return (
-        <>
-            {window.localStorage.getItem('myChatUser')?(
-                <div className="appContainer">
-                    {/* {console.log(window.localStorage.getItem('myChatUser'))} */}
-                    <Sidebar />
-                    <ChatRoom />
-                </div>
-            ):(
-                history.push('/login')
-            )}
-        </>
+        <CurrentRoomProvider>
+            <>
+                {window.localStorage.getItem("myChatUser") ? (
+                    <div className="appContainer">
+                        <Sidebar />
+                        <ChatRoom />
+                    </div>
+                ) : (
+                    history.push("/login")
+                )}
+            </>
+        </CurrentRoomProvider>
     );
 }
 
