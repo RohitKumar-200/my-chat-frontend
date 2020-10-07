@@ -56,11 +56,11 @@ function Sidebar() {
                 {rooms.map((room) => (
                     <SidebarRoom
                         roomPic={room.pic}
-                        roomName={`${room.name.substring(0, 42)}${
-                            room.lastMessage.length > 47 ? "..." : ""
+                        roomName={`${room.name.substring(0, 30)}${
+                            room.name.length > 30 ? "..." : ""
                         }`}
-                        lastMessage={`${room.lastMessage.substring(0, 47)}${
-                            room.lastMessage.length > 47 ? "..." : ""
+                        lastMessage={`${room.lastMessage.substring(0, 32)}${
+                            room.lastMessage.length > 32 ? "..." : ""
                         }`}
                         roomId={room._id}
                         key={room._id}

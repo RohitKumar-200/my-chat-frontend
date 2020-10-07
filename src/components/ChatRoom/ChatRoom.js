@@ -4,16 +4,19 @@ import { Avatar, IconButton } from "@material-ui/core";
 import { SearchOutlined } from "@material-ui/icons";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
+import CloseIcon from '@material-ui/icons/Close';
 import Message from "../Message/Message";
 import ChatRoomMenu from "../ChatRoomMenu/ChatRoomMenu";
 import axios from "../../axios";
 import { CurrentRoomContext } from "../../context/currentRoomContext";
 import pusher from "../../pusher";
+import emojiArr from "./emoji";
 
 const messageChannel = pusher.subscribe("newMessage");
 
 function ChatRoom() {
     const [currentRoomId] = useContext(CurrentRoomContext);
+    const [emojiVisible, setEmojiVisible] = useState(false);
 
     const userName = JSON.parse(window.localStorage.getItem("myChatUser"))[
         "name"
@@ -68,6 +71,13 @@ function ChatRoom() {
             setInput("");
         }
     };
+    
+    const setInputFocus = () => {
+        const element = document.getElementById("chatRoom--input");
+        if(element)
+        element.focus();
+    }
+    setInputFocus();
 
     if (!currentRoomId) {
         return (
@@ -119,12 +129,20 @@ function ChatRoom() {
                     timestamp={new Date()}
                 /> */}
             </div>
+            {(emojiVisible)?(<div className="chatRoom__emojiContainer">
+                {
+                    emojiArr.map((e) => {
+                        return(<IconButton onClick={() => setInput(input+e)}><span >{e}</span></IconButton>);
+                    })
+                }
+            </div>):""}
             <div className="chat__footer">
-                <IconButton>
-                    <InsertEmoticonIcon />
+                <IconButton onClick={() => {emojiVisible?setEmojiVisible(false) : setEmojiVisible(true)}}>
+                    {(emojiVisible)? <CloseIcon /> : <InsertEmoticonIcon />}
                 </IconButton>
                 <form>
                     <input
+                        id="chatRoom--input"
                         type="text"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}

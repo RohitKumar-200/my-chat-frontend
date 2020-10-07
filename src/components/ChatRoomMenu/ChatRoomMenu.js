@@ -1,10 +1,12 @@
-import React from 'react'
-import './ChatRoomMenu.css'
+import React, { useContext, useState } from "react";
+import "./ChatRoomMenu.css";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import AddParticipant from "../Dialogs/AddParticipant";
+import { CurrentRoomContext } from "../../context/currentRoomContext";
+import axios from "../../axios";
 
 const options = [
     "Leave room",
@@ -12,13 +14,14 @@ const options = [
     <AddParticipant />,
     "Invitation link",
     "Invitation code",
-    "Delete room",
 ];
 
 const ITEM_HEIGHT = 52;
 
 function ChatRoomMenu() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [currentRoomId, setCurrentRoomId] = useContext(CurrentRoomContext);
+
     const open = Boolean(anchorEl);
 
     const handleClick = (event) => {
@@ -26,6 +29,47 @@ function ChatRoomMenu() {
     };
 
     const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleProceed = (param) => {
+        switch (param) {
+            case "Leave room":
+                axios
+                    .post("/leaveRoom", {
+                        roomId: currentRoomId,
+                        email: JSON.parse(
+                            window.localStorage.getItem("myChatUser")
+                        ).email,
+                    })
+                    .then(() => {
+                        setCurrentRoomId(null);
+                    })
+                    .catch((err) => {
+                        alert(err.response.data);
+                    });
+                break;
+            case "Clear chat":
+                axios
+                    .delete(`/clearChat/${currentRoomId}`)
+                    .then(() => {
+                        const roomId = currentRoomId;
+                        setCurrentRoomId(null);
+                        setCurrentRoomId(roomId);
+                    })
+                    .catch((err) => {
+                        alert(err.response.data);
+                    });
+                break;
+            case "Invitation link":
+                alert("This feature is not available yet, copy invitation code instead!");
+                break;
+            case "Invitation code":
+                navigator.clipboard.writeText(currentRoomId);
+                alert("Invitation code copied to clipboard");
+                break;
+            default: break;
+        }
         setAnchorEl(null);
     };
 
@@ -52,11 +96,11 @@ function ChatRoomMenu() {
                     },
                 }}
             >
-                {options.map((option) => (
+                {options.map((option, i) => (
                     <MenuItem
-                        key={option}
+                        key={"chatRoomMenu" + i}
                         selected={option === ""}
-                        onClick={handleClose}
+                        onClick={() => handleProceed(option)}
                     >
                         {option}
                     </MenuItem>

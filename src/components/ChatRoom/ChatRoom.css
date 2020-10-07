@@ -1,5 +1,9 @@
 .chatRoom {
     flex: 0.7;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .chatRoom__header {
     height: 70px;
@@ -30,11 +34,25 @@
 }
 
 .chatRoom__body {
-    height: calc(96vh - 130px);
+    flex: 1;
     /* background-image: url('https://image.freepik.com/free-vector/birds-letter-mail-seamless-pattern-doodle-mail-vector-background_7586-1157.jpg'); */
     background-color: #e5ddd5;
     /* background-blend-mode: lighten; */
     overflow-y: scroll;
+}
+
+.chatRoom__emojiContainer {
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #F0F0F0;
+    border-bottom: 0.01px solid #dadada;
+}
+.chatRoom__emojiContainer > .MuiIconButton-root {
+    font-size: 20px;
+    padding: 2px;
+    color: inherit;
 }
 
 .chat__footer {
