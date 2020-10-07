@@ -62,13 +62,17 @@ function ChatRoomMenu() {
                     });
                 break;
             case "Invitation link":
-                alert("This feature is not available yet, copy invitation code instead!");
+                const invitationLink =
+                    window.location.host + "/joinRoom/" + currentRoomId;
+                navigator.clipboard.writeText(invitationLink);
+                alert("Invitation link copied to clipboard");
                 break;
             case "Invitation code":
                 navigator.clipboard.writeText(currentRoomId);
                 alert("Invitation code copied to clipboard");
                 break;
-            default: break;
+            default:
+                break;
         }
         setAnchorEl(null);
     };

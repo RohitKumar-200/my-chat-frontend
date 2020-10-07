@@ -1,0 +1,10 @@
+.joinRoom {
+    text-align: center;
+}
+.joinRoom__heading {
+    font-weight: 100;
+    font-size: 50px;
+}
+.joinRoom__loadingImage {
+    height: 200px;
+}

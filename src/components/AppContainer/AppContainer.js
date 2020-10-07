@@ -17,7 +17,7 @@ function AppContainer() {
                         <ChatRoom />
                     </div>
                 ) : (
-                    history.push("/login")
+                    history.push("/login?redirect=/app")
                 )}
             </>
         </CurrentRoomProvider>

@@ -33,7 +33,7 @@ function SidebarMenu() {
         setAnchorEl(null);
         if(param === 'Log Out') {
             window.localStorage.removeItem('myChatUser');
-            history.push('/login');
+            history.push('/login?redirect=/app');
         }
     }
 

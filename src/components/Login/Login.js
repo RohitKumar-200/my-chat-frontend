@@ -26,7 +26,8 @@ function Login() {
                 axios.post("/user", jsonData);
             })
             .then(() => {
-                history.push("/app");
+                const redirect = window.location.href.split("=")[1];
+                redirect ? history.push(redirect) : history.push("/app");
             })
             .catch((error) => alert(error.message));
     };
