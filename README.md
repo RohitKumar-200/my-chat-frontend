@@ -46,7 +46,7 @@ Chatroom menu
 
 ## Setting up locally
 1. Clone this repository  
-` git clone https://github.com/RohitKumar-200/my-chat.git `
+` git clone https://github.com/RohitKumar-200/my-chat-frontend.git `
 2. cd to my-chat-frontend
 3. Run command  
 `npm install`
