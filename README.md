@@ -29,20 +29,20 @@ This repository includes only front-end part of my-chat application.
 
 ## Screenshots
 First page
-![First page](https://raw.githubusercontent.com/RohitKumar-200/Images/main/my-chat-firstPage.jpg?token=ANICJWK2YYHVZRILWHA3JSC7R3OYA)
+![First page](https://github.com/RohitKumar-200/Images/blob/main/my-chat-firstPage.jpg?raw=true)
 
 Chat room
-![Chat room](https://raw.githubusercontent.com/RohitKumar-200/Images/main/my-chat-chatRoom.jpg?token=ANICJWOTYT4A6NJNXHZ56M27R3OFO)
+![Chat room](https://github.com/RohitKumar-200/Images/blob/main/my-chat-chatRoom.jpg?raw=true)
 
 Emojis
-![Emojis](https://raw.githubusercontent.com/RohitKumar-200/Images/main/my-chat-emojis.jpg?token=ANICJWKGCYQZIE4R3UVVNLS7R3OUK)
+![Emojis](https://github.com/RohitKumar-200/Images/blob/main/my-chat-emojis.jpg?raw=true)
 
 Sidebar menu
-![Sidebar menu](https://raw.githubusercontent.com/RohitKumar-200/Images/main/my-chat-sidebarMenu.jpg?token=ANICJWP6KVOGAROF4M6WRJC7R3O2E)
+![Sidebar menu](https://github.com/RohitKumar-200/Images/blob/main/my-chat-sidebarMenu.jpg?raw=true)
 
 
 Chatroom menu
-![Chatroom menu](https://raw.githubusercontent.com/RohitKumar-200/Images/main/my-chat-chatRoomMenu.jpg?token=ANICJWPUJDG5RBAEB3BOBCS7R3O6E)
+![Chatroom menu](https://github.com/RohitKumar-200/Images/blob/main/my-chat-chatRoomMenu.jpg?raw=true)
 
 ## Setting up locally
 1. Clone this repository  
