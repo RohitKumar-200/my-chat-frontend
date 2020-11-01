@@ -29,20 +29,20 @@ This repository includes only front-end part of my-chat application.
 
 ## Screenshots
 First page
-![First page](https://github.com/RohitKumar-200/Images/blob/main/my-chat-firstPage.jpg?raw=true)
+![First page](https://ibb.co/3mkMmLY)
 
 Chat room
-![Chat room](https://github.com/RohitKumar-200/Images/blob/main/my-chat-chatRoom.jpg?raw=true)
+![Chat room](https://ibb.co/jwwmhM3)
 
 Emojis
-![Emojis](https://github.com/RohitKumar-200/Images/blob/main/my-chat-emojis.jpg?raw=true)
+![Emojis](https://ibb.co/GMv69BF)
 
 Sidebar menu
-![Sidebar menu](https://github.com/RohitKumar-200/Images/blob/main/my-chat-sidebarMenu.jpg?raw=true)
+![Sidebar menu](https://ibb.co/SPG2QPC)
 
 
 Chatroom menu
-![Chatroom menu](https://github.com/RohitKumar-200/Images/blob/main/my-chat-chatRoomMenu.jpg?raw=true)
+![Chatroom menu](https://ibb.co/7VHpTHK)
 
 ## Setting up locally
 1. Clone this repository  
