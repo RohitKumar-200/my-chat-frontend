@@ -28,20 +28,20 @@ This repository includes only front-end part of my-chat application.
 * Add emojis to message
 
 ## Screenshots
-First page
+First page  
 ![First page](https://i.ibb.co/8gXdgS4/my-chat-first-Page.jpg)
 
-Chat room
+Chat room  
 ![Chat room](https://i.ibb.co/PWWKxh1/my-chat-chat-Room.jpg)
 
-Emojis
+Emojis  
 ![Emojis](https://i.ibb.co/JpR1q0C/my-chat-emojis.jpg)
 
-Sidebar menu
+Sidebar menu  
 ![Sidebar menu](https://i.ibb.co/2yHw8y4/my-chat-sidebar-Menu.jpg)
 
 
-Chatroom menu
+Chatroom menu  
 ![Chatroom menu](https://i.ibb.co/Y86dK6h/my-chat-chat-Room-Menu.jpg)
 
 ## Setting up locally
