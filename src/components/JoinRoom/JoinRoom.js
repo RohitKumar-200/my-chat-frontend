@@ -28,7 +28,7 @@ function JoinRoom() {
                     });
             }
         }
-    }, []);
+    }, [history]);
 
     return (
         <div className="joinRoom">

@@ -6,19 +6,28 @@ import SidebarRoom from "../SidebarRoom/SidebarRoom";
 import SidebarMenu from "../SidebarMenu/SidebarMenu";
 import axios from "../../axios";
 import pusher from "../../pusher";
+import Loading from "../Loading/Loading"
+import CreateRoom from "../Dialogs/CreateRoom";
+import { Button } from "@material-ui/core";
 
 const roomUpdateChannel = pusher.subscribe("roomsUpdate");
 
 function Sidebar() {
     const user = JSON.parse(window.localStorage.getItem("myChatUser"));
     const [rooms, setRooms] = useState([]);
+    const [roomsStatus, setRoomsStatus] = useState("loading");
 
     const updateRooms = useCallback(() => {
         axios.get(`/roomList/${user.email}`).then((response) => {
             const roomsArray = response.data.sort((x, y) => {
                 return new Date(y.lastTimestamp) - new Date(x.lastTimestamp);
             });
-            setRooms(roomsArray);
+            if(roomsArray.length === 0) {
+                setRoomsStatus("empty");
+            } else if(roomsArray.length > 0) {
+                setRoomsStatus("loaded");
+                setRooms(roomsArray);
+            }
         });
     }, []);
 
@@ -53,19 +62,32 @@ function Sidebar() {
                 </div>
             </div>
             <div className="sidebar__rooms">
-                {rooms.map((room) => (
-                    <SidebarRoom
-                        roomPic={room.pic}
-                        roomName={`${room.name.substring(0, 30)}${
-                            room.name.length > 30 ? "..." : ""
-                        }`}
-                        lastMessage={`${room.lastMessage.substring(0, 32)}${
-                            room.lastMessage.length > 32 ? "..." : ""
-                        }`}
-                        roomId={room._id}
-                        key={room._id}
-                    />
-                ))}
+                {
+                    (() => {
+                        if( roomsStatus === "loading" ) {
+                            return <Loading />;
+                        } else if( roomsStatus === "empty" ) {
+                            return (
+                            <div className="sidebar__createRoom">
+                                    <Button><CreateRoom /></Button>
+                            </div>);
+                        } else {
+                            return <>{rooms.map((room) => (
+                                <SidebarRoom
+                                    roomPic={room.pic}
+                                    roomName={`${room.name.substring(0, 30)}${
+                                        room.name.length > 30 ? "..." : ""
+                                    }`}
+                                    lastMessage={`${room.lastMessage.substring(0, 32)}${
+                                        room.lastMessage.length > 32 ? "..." : ""
+                                    }`}
+                                    roomId={room._id}
+                                    key={room._id}
+                                />
+                            ))}</>;
+                        }
+                    })()
+                }
             </div>
         </div>
     );

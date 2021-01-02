@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "my-cool-chat",
     "public": "build",
     "ignore": [
       "firebase.json",

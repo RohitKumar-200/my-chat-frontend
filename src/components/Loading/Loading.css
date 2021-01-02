@@ -1,0 +1,8 @@
+.loadingContainer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+.loadingContainer {
+    color: #24B9F6;
+}

@@ -60,3 +60,13 @@
     height: calc(96vh - 119px);
     overflow-y: scroll;
 }
+
+.sidebar__createRoom {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+.sidebar__createRoom .MuiButton-root {
+    background-color: #7DF9CF !important;
+    color: rgb(82, 74, 8);
+}
