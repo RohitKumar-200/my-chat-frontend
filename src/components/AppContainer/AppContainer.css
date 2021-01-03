@@ -18,3 +18,16 @@ background: #eeeeee;
 ::-webkit-scrollbar-thumb:hover {
     background: #c2c2c2;
 }
+
+@media screen and (max-width: 1200px) {
+    .appContainer{
+        width: 98vw;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .appContainer{
+        width: 100vw;
+        height: 100vh;
+    }
+}

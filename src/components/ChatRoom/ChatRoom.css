@@ -111,3 +111,25 @@
     font-weight: 100;
     font-size: 35px;
 }
+
+@media screen and (max-width: 600px) {
+    .chatRoom {
+        flex: 1;
+    }
+    .emptyChatRoom {
+        flex: 1;
+        display: grid; 
+        place-items: center;
+    }
+    .emptyChatRoom__imageContainer {
+        width: 100px;
+        height: 100px;
+        padding: 50px;
+        border-radius: 100px;
+        margin-bottom: 30px;
+    }
+    .emptyChatRoom__text {
+        font-weight: 100;
+        font-size: 25px;
+    }
+}

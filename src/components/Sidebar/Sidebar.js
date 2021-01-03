@@ -9,6 +9,7 @@ import pusher from "../../pusher";
 import Loading from "../Loading/Loading"
 import CreateRoom from "../Dialogs/CreateRoom";
 import { Button } from "@material-ui/core";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const roomUpdateChannel = pusher.subscribe("roomsUpdate");
 
@@ -48,12 +49,16 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <div className="sidebar__header">
-                <Avatar src={user.pic} />
+                <SidebarMenu><Avatar src={user.pic} /></SidebarMenu>
                 <div className="sidebar__headerInfo">
                     <h2>{user.name}</h2>
                     <h3>{user.email}</h3>
                 </div>
-                <SidebarMenu />
+                <div className="sidebar__menuButton">
+                    <SidebarMenu>
+                        <MoreVertIcon />
+                    </SidebarMenu>
+                </div>
             </div>
             <div className="sidebar__search">
                 <div className="sidebar__searchContainer">
@@ -78,9 +83,10 @@ function Sidebar() {
                                     roomName={`${room.name.substring(0, 30)}${
                                         room.name.length > 30 ? "..." : ""
                                     }`}
-                                    lastMessage={`${room.lastMessage.substring(0, 32)}${
-                                        room.lastMessage.length > 32 ? "..." : ""
-                                    }`}
+                                    // lastMessage={`${room.lastMessage.substring(0, 32)}${
+                                    //     room.lastMessage.length > 32 ? "..." : ""
+                                    // }`}
+                                    lastMessage={room.lastMessage}
                                     roomId={room._id}
                                     key={room._id}
                                 />

@@ -3,7 +3,6 @@ import "./SidebarMenu.css";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import JoinRoom from "../Dialogs/JoinRoom";
 import CreateRoom from "../Dialogs/CreateRoom";
 import { useHistory } from "react-router-dom";
@@ -16,7 +15,7 @@ const options = [
 
 const ITEM_HEIGHT = 50;
 
-function SidebarMenu() {
+function SidebarMenu(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const history = useHistory();
@@ -45,7 +44,7 @@ function SidebarMenu() {
                 aria-haspopup="true"
                 onClick={handleClick}
             >
-                <MoreVertIcon />
+                {props.children}
             </IconButton>
             <Menu
                 id="sidebar-long-menu"

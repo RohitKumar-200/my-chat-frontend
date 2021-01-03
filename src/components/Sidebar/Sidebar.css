@@ -1,6 +1,7 @@
 .sidebar {
     flex: 0.3;
     border-right: 1px solid #dadada;
+    min-width: 220px;
 }
 .sidebar__header {
     display: flex;
@@ -69,4 +70,27 @@
 .sidebar__createRoom .MuiButton-root {
     background-color: #7DF9CF !important;
     color: rgb(82, 74, 8);
+}
+
+
+@media screen and (max-width: 850px) {
+    .sidebar__headerInfo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        flex: initial;
+        min-width: 50px;
+    }
+    .sidebar__header {
+        justify-content: space-around;
+    }
+    .sidebar__search {
+        display: none;
+    }
+    .sidebar__menuButton {
+        display: none;
+    }
 }

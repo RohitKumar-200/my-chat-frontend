@@ -27,4 +27,32 @@
 }
 .sidebarRoom__lastMessage {
     font-size: 14px;
+    width: 250px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+@media screen and (max-width: 1100px) {
+    .sidebarRoom__lastMessage {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 910px) {
+    .sidebarRoom__lastMessage {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sidebarRoom__info {
+        display: none;
+    }
+    .sidebarRoom__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
 }
